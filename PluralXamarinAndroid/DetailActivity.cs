@@ -19,6 +19,8 @@ namespace PluralXamarinAndroid
         {
             base.OnCreate(savedInstanceState);
 
+            SetContentView(Resource.Layout.DetailActivity);
+
             // Create your application here
         }
     }

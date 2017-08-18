@@ -1,6 +1,7 @@
 ﻿using Android.App;
-using Android.Widget;
+using Android.Content;
 using Android.OS;
+using Android.Widget;
 
 namespace PluralXamarinAndroid
 {
@@ -12,11 +13,15 @@ namespace PluralXamarinAndroid
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
-            SetContentView (Resource.Layout.Main);
+            SetContentView(Resource.Layout.Main);
 
             FindViewById<Button>(Resource.Id.btnHellow).Click += (s, e) => 
             {
                 Toast.MakeText(this, "Hey, you touch me, thanks!!", ToastLength.Short).Show();
+                
+                var intent = new Intent();
+                intent.SetClass(this, typeof(DetailActivity));
+                StartActivityForResult(intent, 100);
             };
         }
     }
